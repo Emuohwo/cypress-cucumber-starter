@@ -1,5 +1,5 @@
 import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
-import LoginPage from "../../pageOjbjects/Login";
+import LoginPage from "../../pageObjects/Login";
 // require('dotenv').config();
 
 const loginPage = new LoginPage();
@@ -41,6 +41,12 @@ When('I enter a valid username and invalid password', () => {
         loginPage.getUsernameInput().type(username);
         loginPage.getPasswordInput().type('invalidPass', { log: false }); // hides password in logs
     });
+});
+
+When('I enter an invalid username and invalid password', (dataTable) => {
+  const credentials = dataTable.hashes()[0];
+    loginPage.getUsernameInput().type(credentials.username);
+    loginPage.getPasswordInput().type(credentials.password, { log: false }); // hides password in logs
 });
 
 
