@@ -1,11 +1,11 @@
 # Cypress Test Report
 
 - Workflow: Cypress Test Report
-- Run ID: 27064178131
-- Commit: 4f015ccdbdca5f06f246f7fa013aaf36089ae5e8
+- Run ID: 27074056843
+- Commit: 088b0cf88053052b06ce259c36c1356b751cb38c
 - Triggered by: Emuohwo
-- Date: 2026-06-06 19:55:48 UTC
-- Test command: npm run test:smoke
+- Date: 2026-06-06 21:31:42 UTC
+- Test command: npx cypress run
 - Exit code: unknown
 - Result: Passed
 
