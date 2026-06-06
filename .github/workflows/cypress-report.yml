@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p reports
           set +e
-          npm run test:smoke > reports/test-output.txt 2>&1
+          npx cypress run > reports/test-output.txt 2>&1
           status=$?
           echo "status=$status" >> "$GITHUB_OUTPUT"
           cat reports/test-output.txt
@@ -52,7 +52,7 @@ jobs:
           - Commit: ${{ github.sha }}
           - Triggered by: ${{ github.actor }}
           - Date: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          - Test command: npm run test:smoke
+          - Test command: npx cypress run
           - Exit code: ${{ steps.cypress.outputs.status || 'unknown' }}
           - Result: ${{ steps.cypress.outputs.status == '0' && 'Passed' || 'Failed' }}
 
