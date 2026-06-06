@@ -20,7 +20,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:smoke": "npx cypress run --env TAGS='@smoke'",
+    "test:regression": "npx cypress run --env TAGS='@regression'",
+    "test:not-smoke": "npx cypress run --env TAGS='not @smoke'"
   },
   "devDependencies": {
     "cypress": "^15.16.0",
