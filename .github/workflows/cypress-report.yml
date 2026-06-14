@@ -28,17 +28,14 @@ jobs:
 
       - name: Run Cypress tests
         id: cypress
+        timeout-minutes: 30
         env:
           CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME || 'admin' }}
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD || 'password' }}
         run: |
           mkdir -p reports
-          set +e
-          npx cypress run > reports/test-output.txt 2>&1
-          status=$?
-          echo "status=$status" >> "$GITHUB_OUTPUT"
-          cat reports/test-output.txt
-          exit 0
+          npx cypress run | tee reports/test-output.txt
+
 
       - name: Generate README test report
         if: always()
